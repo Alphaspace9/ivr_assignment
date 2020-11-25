@@ -395,6 +395,20 @@ class image_converter:
   def sqrdist(self, p1, p2):
     return np.linalg.norm(p1 - p2)
 
+  
+ # dumping some stuff that is hopefully forward kinematics 
+ # dunno where it should go atm but we'll worry about it later
+
+  
+def forwardKinematics(self,joints):
+  end_effector = np.array([3 * np.cos(joints[2]) * (np.cos(joints[0]) * np.cos(joints[1]) - np.sin(joints[0]) * np.sin(joints[1]))
+                 + 3.5 * (np.cos(joints[0]) * np.cos(joints[1]) - np.sin(joints[0]) * np.sin(joints[1])),
+                 3 * np.cos(joints[2]) * (np.sin(joints[0]) * np.cos(joints[1]) + np.cos(joints[0]) * np.sin(joints[1]))
+                 + 3.5 * (np.sin(joints[0]) * np.cos(joints[1]) + np.cos(joints[0]) * np.sin(joints[1])),
+                 -3 * np.sin(joints[2]) + 2.5])
+  return end_effector
+  
+  
 # call the class
 def main(args):
   ic = image_converter()
